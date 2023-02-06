@@ -1,5 +1,5 @@
 import Vector from "../assets/Vector"
-import Component2 from "../components/Component2";
+// import Component2 from "../components/Component2";
 import Union from "../assets/Union";
 import Vector1 from "../assets/Vector1";
 import IconsaxLinearCalendar from "../assets/IconsaxLinearCalendar";
