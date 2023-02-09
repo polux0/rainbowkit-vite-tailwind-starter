@@ -145,7 +145,7 @@ function App() {
               {/* Currencies dropdown */}
               {/* Additional trade info dropdown */}
               <div id="dropdown" ref={additionalTradeInfoPopoverDropdownRef} className={(additionalTradeInfoDropdownPopoverShow ? "block " : "hidden ") + (color === "white" ? "bg-white " : backgroundColor1 + " ") +
-                "absolute text-base z-10 float-right h-2/6 w-1/6 py-2 list-none rounded-2xl border-4 border-black border-solid shadow-lg mx-0	my-0 p-5"
+                "absolute text-base z-10 float-right h-2/6 w-1/5 py-2 list-none rounded-2xl border-4 border-black border-solid shadow-lg mx-0	my-0 p-5"
               }>
                 <div className="flex flex-col py-6 text-sm dark:text-gray-400 p-4">
                   <div className="mb-6">
