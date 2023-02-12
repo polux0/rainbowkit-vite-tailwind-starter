@@ -3,7 +3,7 @@ import usdcSvg from "./assets/usdc-logo-svg.svg"
 import usdcDarkSvg from "./assets/usdc-logo-dark-svg.svg"
 import dropDownSvg from "./assets/dropdown-indicator.svg"
 import informationIndicatorWhite from "./assets/information-indicator-white.svg"
-import closeIndicatorWhite from "./assets/information-indicator-white.svg"
+import agencyLogoSvg from "./assets/agency-logo.svg";
 import React from "react";
 import { createPopper } from "@popperjs/core";
 
@@ -23,6 +23,19 @@ function App() {
   const exchangeContainerHeight = {height: "500px"};
   const color = "white";
   const backgroundColor1 = "yellow";
+  const dynamicallMargin = {
+    marginTop: "calc(100vh / 7)"
+  }
+
+  // const alignWithExchangeModal: ( screenWidth - exchangeModalWidth) / 2 = 375.5
+  const dynamicallAlignment = {
+    marginLeft: "calc(100vw / 2)"
+  }
+  const exchangeModalRef: any = React.createRef();
+
+  // const differenceBetweenExchangeModalAndLogoWidth:  ExchangeModalWidth - logoWidth = 572 - 289 = 283 / 2 ( to be centered ) = 141.5
+  // const FinalMargin: alignWithExchangeModal+differenceBetweenExchangeModalAndLogoWidth
+    
   
   // currencies dropdown
   const [currenciesDropdownPopoverShow, setCurrenciesDropdownPopoverShow] = React.useState(false);
@@ -75,7 +88,16 @@ function App() {
 
   return (
     <div className="h-screen bg-black p-6" style={{backgroundColor}}>
-      <div className="flex flex-row w-full min-h-full justify-center items-center">
+      {/* header */}
+        <div className="flex justify-center w-12/12 mb-3">
+          <div className="w-5/12"></div>
+          <div className="w-5/12 text-center">
+            <img src={agencyLogoSvg}></img>
+          </div> 
+         <div className="w-2/12 text-center text-white"><h1>0  x  2  2  2 ... 2  3  2</h1></div>
+
+        </div>
+      <div className="flex flex-col w-full min-h-3/4 justify-center items-center">
         <div className="h-max bg-white rounded-3xl p-6" style={exchangeContainerHeight}>
           <div className = "w-full h-1/6">
             <button className="float-right" onClick={() => {
