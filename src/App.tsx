@@ -4,6 +4,8 @@ import usdcDarkSvg from "./assets/usdc-logo-dark-svg.svg"
 import dropDownSvg from "./assets/dropdown-indicator.svg"
 import informationIndicatorWhite from "./assets/information-indicator-white.svg"
 import agencyLogoSvg from "./assets/agency-logo.svg";
+import roadmapSvg from "./assets/roadmapicon-svg.svg";
+import statsSvg from "./assets/stats-icon-svg.svg";
 import React from "react";
 import { createPopper } from "@popperjs/core";
 
@@ -95,10 +97,13 @@ function App() {
             <img src={agencyLogoSvg}></img>
           </div> 
          <div className="w-2/12 text-center text-white"><h1>0  x  2  2  2 ... 2  3  2</h1></div>
-
         </div>
-      <div className="flex flex-col w-full min-h-3/4 justify-center items-center">
-        <div className="h-max bg-white rounded-3xl p-6" style={exchangeContainerHeight}>
+      <div className="flex flex-row w-full min-h-3/4 lg:mt-36 justify-center items-center">
+      {/* //Roadmap */}
+      <div className="float-left w-4/12">
+        <button><img src={roadmapSvg}></img></button>
+      </div>
+        <div className="h-max w-4/12 bg-white rounded-3xl p-6" style={exchangeContainerHeight}>
           <div className = "w-full h-1/6">
             <button className="float-right" onClick={() => {
                   settingsDropdownPopoverShow
@@ -107,7 +112,7 @@ function App() {
                 }}><img src={settingsSvg}></img></button>
           </div>
           {/* Swap */}
-          <div className="flex flex-col justify-center items-center space-y-2 h-2/3">
+          <div className="flex flex-col justify-center items-center space-y-2 h-2/3"> 
             <div className="flex justify-center items-center w-5/6 h-2/6 rounded-2xl" style={{backgroundColor}}>
                 <input className="w-2/3 h-2/3 text-4xl text-white p-4 focus:outline-0" style={{backgroundColor}}></input>
                 <button className="w-1/6 h-1/2"><img className="float-right"src={usdcSvg}></img></button>
@@ -140,8 +145,8 @@ function App() {
             </div>
             <div className="flex justify-center items-center w-5/6 h-2/6 rounded-2xl" style={{backgroundColor}}>
                 <input className="w-2/3 h-2/3 text-4xl text-white p-4 focus:outline-0" style={{backgroundColor}}></input>
-                <button className="w-1/6 h-1/2" data-dropdown-toggle="dropdown"><img className="float-right"src={usdcSvg}></img></button>
-                <button className="w-1/6 h-1/9" data-dropdown-toggle="dropdown" onClick={() => {
+                <button className="w-1/6 h-1/2"><img className="float-right"src={usdcSvg}></img></button>
+                <button className="w-1/6 h-1/9" onClick={() => {
                   additionalTradeInfoDropdownPopoverShow
                     ? closeAdditionalTradeInfoDropdownPopover()
                     : openAdditionalTradeInfoDropdownPopover();
@@ -196,6 +201,10 @@ function App() {
               <button className="w-full bg-white h-full rounded-2xl">Swap</button>
           </div>
           </div>
+        </div>
+        {/* Stats */}
+        <div className="w-4/12 float-right hover:cursor-pointer">
+        <img className="float-right" src={statsSvg}></img>
         </div>
       </div>
     </div>
