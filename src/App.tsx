@@ -92,18 +92,16 @@ function App() {
     <div className="h-screen bg-black p-6" style={{backgroundColor}}>
       {/* header */}
         <div className="flex justify-center w-12/12 mb-3">
-          <div className="w-5/12"></div>
-          <div className="w-5/12 text-center">
-            <img src={agencyLogoSvg}></img>
-          </div> 
-         <div className="w-2/12 text-center text-white"><h1>0  x  2  2  2 ... 2  3  2</h1></div>
+          {/* <div className="bg-white">1</div> */}
+          <div className="text-center"><img src={agencyLogoSvg}></img></div>
+          {/* <div className="w-1/6 text-center text-white float-right"><h1>0  x  2  2  2 ... 2  3  2</h1></div>  */}
         </div>
-      <div className="flex flex-row w-full min-h-3/4 lg:mt-36 justify-center items-center">
+      <div className="flex flex-row w-full min-h-3/4 lg:mt-36 justify-center items-center md:mt-36 sm:mt-36">
       {/* //Roadmap */}
       <div className="float-left w-4/12">
         <button><img src={roadmapSvg}></img></button>
       </div>
-        <div className="h-max w-4/12 bg-white rounded-3xl p-6" style={exchangeContainerHeight}>
+        <div className="h-max 2xl:w-4/12 xl:w-5/12 lg:w-6/12 bg-white rounded-3xl p-6" style={exchangeContainerHeight}>
           <div className = "w-full h-1/6">
             <button className="float-right" onClick={() => {
                   settingsDropdownPopoverShow
