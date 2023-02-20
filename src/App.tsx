@@ -6,6 +6,8 @@ import informationIndicatorWhite from "./assets/information-indicator-white.svg"
 import agencyLogoSvg from "./assets/agency-logo.svg";
 import roadmapSvg from "./assets/roadmapicon-svg.svg";
 import statsSvg from "./assets/stats-icon-svg.svg";
+import userWalletMobileScreenSvg from "./assets/user-wallet-small-screen-svg.svg";
+
 import React from "react";
 import { createPopper } from "@popperjs/core";
 
@@ -91,10 +93,12 @@ function App() {
   return (
     <div className="h-screen bg-black p-6" style={{backgroundColor}}>
       {/* header */}
-        <div className="flex justify-center w-12/12 mb-3">
+        {/* <div className="flex justify-center w-12/12 mb-3"> */}
           {/* <div className="bg-white">1</div> */}
-          <div className="text-center"><img src={agencyLogoSvg}></img></div>
-          {/* <div className="w-1/6 text-center text-white float-right"><h1>0  x  2  2  2 ... 2  3  2</h1></div>  */}
+        <div className="grid 2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2">
+          <div className="2xl:col-start-3 col-span-2 place-self-center xl:col-start-3 col-span-2 lg:col-start-3 col-span-3 md:col-start-1 col-span-2 place-self-center sm:place-self-start"><img src={agencyLogoSvg}></img></div>
+          <div className="col-start-6 text-white place-self-center"><h1>0  x  2  2  2 ... 2  3  2</h1></div>
+          {/* <div className="col-start-6 text-white place-self-center sm:place-self-center"><img src={userWalletMobileScreenSvg}></img></div>  */}
         </div>
       <div className="flex flex-row w-full min-h-3/4 lg:mt-36 justify-center items-center md:mt-36 sm:mt-36">
       {/* //Roadmap */}
