@@ -95,9 +95,9 @@ function App() {
       {/* header */}
         {/* <div className="flex justify-center w-12/12 mb-3"> */}
           {/* <div className="bg-white">1</div> */}
-        <div className="grid 2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2">
-          <div className="2xl:col-start-3 col-span-2 place-self-center xl:col-start-3 col-span-2 lg:col-start-3 col-span-3 md:col-start-1 col-span-2 place-self-center sm:place-self-start"><img src={agencyLogoSvg}></img></div>
-          <div className="col-start-6 text-white place-self-center"><h1>0  x  2  2  2 ... 2  3  2</h1></div>
+        <div className="grid 2xl:grid-cols-7 xl:grid-cols-7 lg:grid-cols-7 md:grid-cols-7 sm:grid-cols-2">
+          <div className="2xl:col-start-3 col-span-2 2xl:place-self-center xl:col-start-3 col-span-2 xl:place-self-center lg:col-start-3 col-span-3 lg:place-self-center md:col-start-3 col-span-2 md:place-self-center sm:place-self-start"><img src={agencyLogoSvg}></img></div>
+          <div className="col-start-7 text-white place-self-center"><h1>0  x  2  2  2 ... 2  3  2</h1></div>
           {/* <div className="col-start-6 text-white place-self-center sm:place-self-center"><img src={userWalletMobileScreenSvg}></img></div>  */}
         </div>
       <div className="flex flex-row w-full min-h-3/4 lg:mt-36 justify-center items-center md:mt-36 sm:mt-36">
