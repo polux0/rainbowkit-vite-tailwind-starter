@@ -7,17 +7,16 @@ import agencyLogoSvg from "./assets/agency-logo.svg";
 import roadmapSvg from "./assets/roadmapicon-svg.svg";
 import statsSvg from "./assets/stats-icon-svg.svg";
 import userWalletMobileScreenSvg from "./assets/user-wallet-small-screen-svg.svg";
-
 import React from "react";
 import { createPopper } from "@popperjs/core";
 
 function App() {
 
-  // technical debt:
-  // convert styles to tailwind;
-  // currenciesPopoverDropdownRef has position absolute and huge margins - see if there is better way of approaching this
-  // different values are fixed and ( should be dynamic )
-  // swap container has a fixed height ( 500px )
+  // technical debt: 
+  // 1. adapt styles / css for components
+  // 2. add margin from swap modal that will be percentage of screen height
+  // 3. introduce responsivness in modals ( select currency, additional trade info, settings )
+  
   const backgroundColor = "#1A1B23";
   const imageStyle = {
     display: "block",
@@ -32,11 +31,6 @@ function App() {
   }
 
   // const alignWithExchangeModal: ( screenWidth - exchangeModalWidth) / 2 = 375.5
-  const dynamicallAlignment = {
-    marginLeft: "calc(100vw / 2)"
-  }
-  const exchangeModalRef: any = React.createRef();
-
   // const differenceBetweenExchangeModalAndLogoWidth:  ExchangeModalWidth - logoWidth = 572 - 289 = 283 / 2 ( to be centered ) = 141.5
   // const FinalMargin: alignWithExchangeModal+differenceBetweenExchangeModalAndLogoWidth
     
@@ -92,22 +86,22 @@ function App() {
 
   return (
     <div className="h-screen bg-black p-6" style={{backgroundColor}}>
-      {/* header */}
-        {/* <div className="flex justify-center w-12/12 mb-3"> */}
-          {/* <div className="bg-white">1</div> */}
-        <div className="grid 2xl:grid-cols-7 xl:grid-cols-7 lg:grid-cols-7 md:grid-cols-7 sm:grid-cols-2">
-          <div className="2xl:col-start-3 col-span-2 2xl:place-self-center xl:col-start-3 col-span-2 xl:place-self-center lg:col-start-3 col-span-3 lg:place-self-center md:col-start-3 col-span-2 md:place-self-center sm:place-self-start"><img src={agencyLogoSvg}></img></div>
-          <div className="col-start-7 text-white place-self-center"><h1>0  x  2  2  2 ... 2  3  2</h1></div>
-          {/* <div className="col-start-6 text-white place-self-center sm:place-self-center"><img src={userWalletMobileScreenSvg}></img></div>  */}
+      {/* Header */}
+        <div className="grid 2xl:grid-cols-7 xl:grid-cols-7 lg:grid-cols-7 md:grid-cols-7 sm:grid-cols-5">
+          <div className="2xl:col-start-3 col-span-2 2xl:place-self-center xl:col-start-3 col-span-2 xl:place-self-center lg:col-start-3 col-span-3 lg:place-self-center md:col-start-3 col-span-2 md:place-self-center sm:col-start-2 col-span-3 sm:place-self-end xsm: col-start-2 place-self-center"><img className="2xl:ml-0 xl:ml-0 md:ml-0 sm:ml-12" src={agencyLogoSvg}></img></div>
+          <div className="col-start-7 text-white place-self-center hover:cursor-pointer xsm:hidden sm:block md:block lg:block xl:block 2xl:block"><h1 className="mb-3.5">0  x  2  2  2 ... 2  3  2</h1></div>
+          <div className="col-start-6 text-white place-self-center sm:place-self-center sm:mb-3.5 xsm:mb-3.5 hover:cursor-pointer xsm:block sm:hidden md:hidden lg:hidden xl:hidden 2xl:hidden"><img className="mb-1" src={userWalletMobileScreenSvg}></img></div> 
         </div>
-      <div className="flex flex-row w-full min-h-3/4 lg:mt-36 justify-center items-center md:mt-36 sm:mt-36">
+      <div className="flex flex-row w-full min-h-3/4 lg:mt-36 justify-center items-center md:mt-36 sm:mt-36 xsm:mt-1">
       {/* //Roadmap */}
-      <div className="float-left w-4/12">
-        <button><img src={roadmapSvg}></img></button>
+      <div className="float-left w-4/12 xsm:hidden 2xl:block xl:block lg:block md:block sm:block">
+        <button><img src={roadmapSvg} style={imageStyle}></img></button>
       </div>
         <div className="h-max 2xl:w-4/12 xl:w-5/12 lg:w-6/12 bg-white rounded-3xl p-6" style={exchangeContainerHeight}>
           <div className = "w-full h-1/6">
             <button className="float-right" onClick={() => {
+                  console.log("height: ", window.innerHeight)
+                  console.log("width: ", window.innerWidth)
                   settingsDropdownPopoverShow
                     ? closeSettingsDropdownPopover()
                     : openSettingsDropdownPopover();
@@ -205,9 +199,19 @@ function App() {
           </div>
         </div>
         {/* Stats */}
-        <div className="w-4/12 float-right hover:cursor-pointer">
-        <img className="float-right" src={statsSvg}></img>
+        <div className="w-4/12 float-right hover:cursor-pointer xsm:hidden sm:block md:block lg:block xl:block 2xl:block">
+          <img className="float-right" src={statsSvg}></img>
         </div>
+      </div>
+      {/* Roadmap & Stats as a footer ( mobile ) */}
+      <div className="w-full h-1/7 mt-3 2xl:hidden xl:hidden lg:hidden md:hidden sm:hidden">
+        <div className="w-4/12 float-right hover:cursor-pointer">
+            <img className="" src={statsSvg} style={imageStyle}></img>
+        </div>
+        <div className="w-4/12 float-left hover:cursor-pointer">
+            <img className="" src={roadmapSvg}></img>
+        </div>
+      {/* Roadmap & Stats as a footer ( mobile ) */}
       </div>
     </div>
   );
